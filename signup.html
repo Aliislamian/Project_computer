@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form class="form " id="Sign_up" onsubmit="return validatrion()">
+            <h1 class="from__title">Sign up</h1><br><br>
+            <div class="from__massage from__massage-error"></div>
+            <div class="from__input-group">
+                <input type="text"  class="from__input" id="name" name="name" autofocus placeholder="username"><span id="name2" class="text-danger font-weight-bold"></span>
+                <div class="from__input-error-massage" ></div>
+            </div>
+            <div class="from__input-group">
+                <input type="text" class="from__input"  id="email" name="email" autofocus placeholder="Email Adress"><span id="email2" class="text-danger font-weight-bold"></span>
+                <div class="from__input-error-massage"></div>
+            </div>
+            <div class="from__input-group">
+                <input type="password" class="from__input" id="pass" name="pass" autofocus placeholder="password"><span id="pass2" class="text-danger font-weight-bold"></span>
+                <div class="from__input-group-massage"></div>
+            </div>
+            <div class="from__input-group">
+                <input type="password" class="from__input" id="conpass" name="pass2" autofocus placeholder="Confirm Password"><span id="pass3" class="text-danger font-weight-bold"></span>
+                <div class="from__input-group-massage"></div>
+            </div>
+            <button class="from__button" type="submit" value="submit" name="submit">Continue</button>
+            <p class="from__text">
+                <a class="form__link" href="sign_in.html" id="linksingnin">Already have an account? sign in</a>
+            </p>
+        </form>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        function validatrion()
+        {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var pass = document.getElementById("pass").value;
+            var conpass = document.getElementById("conpass").value;
+
+            if(name == "" )
+            {
+                document.getElementById("name2").innerHTML = " **Please fill the name Box";
+                return false;
+                }
+            // }else{
+            //     document.getElementById("name2").innerHTML = "";
+            //     return true;
+            // }
+            if(name.length <=2 || name.length >=20)
+            {
+                document.getElementById("name2").innerHTML = " ** The character must be in between in 2 and 20";
+                return false;
+            }
+
+            if(!isNaN())
+            {
+                  document.getElementById("name2").innerHTML = " ** Please enter only charachters";
+                return false;
+            }
+            
+
+            if(email == "")
+            {
+                document.getElementById("email2").innerText = " **Please fill the email Box";
+                return false;
+            }
+            if(email.indexOf('@')<=0)
+            {
+              document.getElementById("email2").innerHTML = " **@ is invalid position";
+                return false;
+            }
+            if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-4)!='.'))
+            {
+              document.getElementById("email2").innerHTML = " **. is invalid position";
+                return false;
+            }
+
+            if(pass == "")
+            {
+                document.getElementById("pass2").innerHTML = " **Please fill the password Box";
+                return false;
+            }
+            if((pass.length <= 5) || (pass.length > 20))
+            {
+                document.getElementById("pass2").innerHTML = " ** The password is must be in between 5 to 20 character";
+                return  false;
+              }
+              if(pass != conpass )
+              {
+                document.getElementById("pass3").innerHTML = " ** The password is not matched";
+                return  false;
+              }
+
+
+            if(conpass == "")
+            {
+                document.getElementById("pass3").innerHTML = " **Please Enter again password";
+                return false;
+            }
+        }
+    </script>
+
+</body>
+</html>
